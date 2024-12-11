@@ -5,7 +5,10 @@ class MyGameApplication : public Jelly::JellyApplication
 {
 	virtual void Initialize() override
 	{
-		std::cout << "Starting..." << std::endl;
+		JELLY_LOG("Starting...");
+
+		Jelly::JellyWindow win;
+		win.CreateWindow(800, 600, "test");
 	}
 
 	virtual void Update() override

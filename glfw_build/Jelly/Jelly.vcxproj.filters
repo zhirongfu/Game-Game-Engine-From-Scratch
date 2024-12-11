@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\zhiro\source\repos\ZhiRong_Fu_Fall_24\glfw_build\Jelly\CMakeFiles\Jelly.dir\cmake_pch.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\zhiro\source\repos\ZhiRong_Fu_Fall_24\Jelly\JellyApplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\zhiro\source\repos\ZhiRong_Fu_Fall_24\Jelly\EntryPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\zhiro\source\repos\ZhiRong_Fu_Fall_24\Jelly\include\Jelly.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\zhiro\source\repos\ZhiRong_Fu_Fall_24\Jelly\JellyApplication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\zhiro\source\repos\ZhiRong_Fu_Fall_24\glfw_build\Jelly\CMakeFiles\Jelly.dir\Debug\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\zhiro\source\repos\ZhiRong_Fu_Fall_24\glfw_build\Jelly\CMakeFiles\Jelly.dir\Release\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\zhiro\source\repos\ZhiRong_Fu_Fall_24\glfw_build\Jelly\CMakeFiles\Jelly.dir\MinSizeRel\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\zhiro\source\repos\ZhiRong_Fu_Fall_24\glfw_build\Jelly\CMakeFiles\Jelly.dir\RelWithDebInfo\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\zhiro\source\repos\ZhiRong_Fu_Fall_24\Jelly\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{EFFF2235-50B1-3DD6-9DEB-77F11BC73015}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Precompile Header File">
+      <UniqueIdentifier>{9865FCEC-4DDC-3E96-991F-D9671817AA50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2F928A78-0BEF-3EFA-A39B-10C3074B2541}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

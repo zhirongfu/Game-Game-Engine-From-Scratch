@@ -1,7 +1,10 @@
 #pragma once
+
+#include "JellyUtilities.h"
+
 namespace Jelly
 {
-	class JellyApplication
+	class JELLY_API JellyApplication
 	{
 	public:
 		void Run();

@@ -1,0 +1,4 @@
+C:/Users/zhiro/source/repos/ZhiRong_Fu_Fall_24/glfw_build/CMakeFiles/ALL_BUILD.dir
+C:/Users/zhiro/source/repos/ZhiRong_Fu_Fall_24/glfw_build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/zhiro/source/repos/ZhiRong_Fu_Fall_24/glfw_build/src/CMakeFiles/glfw.dir
+C:/Users/zhiro/source/repos/ZhiRong_Fu_Fall_24/glfw_build/src/CMakeFiles/update_mappings.dir
