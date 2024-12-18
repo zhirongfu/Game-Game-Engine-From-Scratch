@@ -8,12 +8,20 @@ namespace Jelly
 	class JELLY_API JellyWindow
 	{
 	public:
-		JellyWindow();
+		static void Init();
+		static std::unique_ptr<JellyWindow>& GetWindow();
 
 		void CreateWindow(int width, int height, std::string windowName);
 		int GetWidth() const;
 		int GetHeight() const;
+
+		void SwapBuffers();
+		void PollEvents();
 	private:
-		WindowImpl* implementation{nullptr};
+		std ::unique_ptr<WindowImpl> implementation{ nullptr };
+
+		JellyWindow();
+
+		inline static std::unique_ptr<JellyWindow> instance;
 	};
 }

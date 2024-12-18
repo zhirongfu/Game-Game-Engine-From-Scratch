@@ -13,6 +13,7 @@ target_compile_definitions(Jelly
 			PUBLIC
 				$<$<CONFIG:Debug>:JELLY_DEBUG=2>
 				$<$<CONFIG:RelWithDebInfo>:JELLY_DEBUG=1>
+				JELLY_OPENGL_STBI
 )
 
 if(MSVC)

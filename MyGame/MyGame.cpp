@@ -7,8 +7,8 @@ class MyGameApplication : public Jelly::JellyApplication
 	{
 		JELLY_LOG("Starting...");
 
-		Jelly::JellyWindow win;
-		win.CreateWindow(800, 600, "test");
+		Jelly::JellyWindow::Init();
+		Jelly::JellyWindow::GetWindow() ->CreateWindow(800, 600, "test");
 	}
 
 	virtual void Update() override

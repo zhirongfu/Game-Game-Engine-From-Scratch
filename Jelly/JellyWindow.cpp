@@ -7,10 +7,22 @@ namespace Jelly
 	{
 		//create an impl obj and point "implementation" pointer to it
 #ifdef JELLY_GLFW
-		implementation = new WindowGLFW;
+		implementation = std::unique_ptr<WindowImpl>{ new WindowGLFW };
 #else
 #window_implementation_isnt_chosen
 #endif
+	}
+
+	void JellyWindow::Init()
+	{
+		if(instance == nullptr)
+			instance = std::unique_ptr<JellyWindow>{ new JellyWindow };
+	}
+
+	std::unique_ptr<JellyWindow>& JellyWindow::GetWindow()
+	{
+		return instance; 
+		// TODO: insert return statement here
 	}
 
 	void JellyWindow::CreateWindow(int width, int height, std::string windowName)
@@ -24,5 +36,13 @@ namespace Jelly
 	int JellyWindow::GetHeight() const
 	{
 		return implementation->GetHeight();
+	}
+	void JellyWindow::SwapBuffers()
+	{
+		implementation->SwapBuffers();
+	}
+	void JellyWindow::PollEvents()
+	{
+		implementation->PollEvents();
 	}
 }
