@@ -22,6 +22,40 @@ namespace Jelly
 			JELLY_ERROR("GLFW failed to create a window!!!");
 
 		glfwMakeContextCurrent(mWindowPtr);
+
+		glfwSetWindowUserPointer(mWindowPtr, &mCallbacks);
+		glfwSetKeyCallback(mWindowPtr,
+			[](GLFWwindow* window, int key, int scancode, int action, int mods) 
+			{
+				if (action == GLFW_PRESS)
+				{
+					Callbacks* callbacks{ (Callbacks*) glfwGetWindowUserPointer(window) };
+
+					KeyEvent event{ key, KeyEvent::KeyAction::Press };
+					callbacks->KeyEventHandler(event);
+				}
+				else if (action == GLFW_RELEASE)
+				{
+					Callbacks* callbacks{ (Callbacks*)glfwGetWindowUserPointer(window) };
+
+					KeyEvent event{ key, KeyEvent::KeyAction::Release };
+					callbacks->KeyEventHandler(event);
+				}
+				else if (action == GLFW_REPEAT)
+				{
+					Callbacks* callbacks{ (Callbacks*)glfwGetWindowUserPointer(window) };
+
+					KeyEvent event{ key, KeyEvent::KeyAction::Repeat };
+					callbacks->KeyEventHandler(event);
+				}
+			});
+
+		glfwSetWindowCloseCallback(mWindowPtr, [](GLFWwindow* window) {
+			Callbacks* callbacks{ (Callbacks*)glfwGetWindowUserPointer(window) };
+
+			WindowEvent event{ Jelly::WindowEvent::WindowAction::Close };
+			callbacks->WindowEventHandler(event);
+			});
 	}
 
 	int WindowGLFW::GetWidth() const
@@ -41,6 +75,14 @@ namespace Jelly
 		glfwGetWindowSize(mWindowPtr, &width, &height);
 
 		return height;
+	}
+	void WindowGLFW::SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler)
+	{
+		mCallbacks.KeyEventHandler = newHandler;
+	}
+	void WindowGLFW::SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler)
+	{
+		mCallbacks.WindowEventHandler = newHandler;
 	}
 	void WindowGLFW::SwapBuffers()
 	{

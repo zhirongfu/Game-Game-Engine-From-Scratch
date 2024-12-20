@@ -2,6 +2,7 @@
 
 #include "pch.h"
 #include "JellyUtilities.h"
+#include "JellyEvents.h"
 
 constexpr int FPS_RATE{ 60 };
 
@@ -14,6 +15,11 @@ namespace Jelly
 		virtual void Initialize();
 		virtual void Update();
 		virtual void Shutdown();
+
+		void SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler);
+		void SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler);
+
+		void DefaultWindowEventHandler(const WindowEvent& event);
 
 	private:
 		bool mShouldContinue{ true };

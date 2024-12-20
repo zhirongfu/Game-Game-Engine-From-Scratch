@@ -2,6 +2,7 @@
 #include"pch.h"
 #include"WindowImpl.h"
 #include"JellyUtilities.h"
+#include"JellyEvents.h"
 
 namespace Jelly
 {
@@ -14,6 +15,9 @@ namespace Jelly
 		void CreateWindow(int width, int height, std::string windowName);
 		int GetWidth() const;
 		int GetHeight() const;
+
+		void SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler);
+		void SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler);
 
 		void SwapBuffers();
 		void PollEvents();

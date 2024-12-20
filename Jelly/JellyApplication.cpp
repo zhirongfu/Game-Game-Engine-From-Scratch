@@ -22,6 +22,9 @@ namespace Jelly
 
 		Renderer::Init();
 
+		SetWindowEventHandler(
+			[this](const WindowEvent& event){ DefaultWindowEventHandler(event); });
+
 		//Initialize();
 
 				//		shaders		//
@@ -72,6 +75,19 @@ namespace Jelly
 	}
 
 
+	void JellyApplication::SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler)
+	{
+		Jelly::JellyWindow::GetWindow()->SetKeyEventHandler(newHandler);
+	}
+	void JellyApplication::SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler)
+	{
+		Jelly::JellyWindow::GetWindow()->SetWindowEventHandler(newHandler);
+	}
+	void JellyApplication::DefaultWindowEventHandler(const WindowEvent& event)
+	{
+		if(event.GetWindowAction()==WindowEvent::WindowAction::Close)
+			mShouldContinue = false;
+	}
 }
 
 

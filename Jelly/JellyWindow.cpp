@@ -37,6 +37,14 @@ namespace Jelly
 	{
 		return implementation->GetHeight();
 	}
+	void JellyWindow::SetKeyEventHandler(const std::function<void(const KeyEvent&)>& newHandler)
+	{
+		implementation->SetKeyEventHandler(newHandler);
+	}
+	void JellyWindow::SetWindowEventHandler(std::function<void(const WindowEvent&)> newHandler)
+	{
+		implementation->SetWindowEventHandler(newHandler);
+	}
 	void JellyWindow::SwapBuffers()
 	{
 		implementation->SwapBuffers();

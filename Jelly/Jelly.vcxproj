@@ -28,8 +28,10 @@
     <ClInclude Include="ImageImpl.h" />
     <ClInclude Include="include\Jelly.h" />
     <ClInclude Include="JellyApplication.h" />
+    <ClInclude Include="JellyEvents.h" />
     <ClInclude Include="JellyUtilities.h" />
     <ClInclude Include="JellyWindow.h" />
+    <ClInclude Include="KeyCodes.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="RendererImpl.h" />
@@ -44,6 +46,7 @@
     <ClCompile Include="codeOpenGL\OpenGLShaders.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="JellyApplication.cpp" />
+    <ClCompile Include="JellyEvents.cpp" />
     <ClCompile Include="JellyWindow.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
