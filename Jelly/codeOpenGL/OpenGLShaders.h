@@ -13,7 +13,7 @@ namespace Jelly
 
 		virtual void LoadShaders(const std::string& vertexSFile, const std::string& fragmentSFile) override;
 		virtual void Bind() override;
-		virtual void SetIntUniform(const std::string& uniformName, const std::vector<int> values) override;
+		virtual void SetIntUniform(const std::string& uniformName, const std::vector<int>& values) override;
 		virtual void SetIntUniform(const std::string& uniformName, int value) override;
 
 		~OpenGLShaders();

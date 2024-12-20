@@ -1,6 +1,9 @@
 #pragma once
 
+#include "pch.h"
 #include "JellyUtilities.h"
+
+constexpr int FPS_RATE{ 60 };
 
 namespace Jelly
 {
@@ -13,7 +16,10 @@ namespace Jelly
 		virtual void Shutdown();
 
 	private:
-		bool ShouldContinue{ true };
+		bool mShouldContinue{ true };
+
+		std::chrono::steady_clock::time_point mNextFrameTime;
+		std::chrono::milliseconds mFrameDuration{ std::chrono::milliseconds{1000} / FPS_RATE };
 
 	};
 }

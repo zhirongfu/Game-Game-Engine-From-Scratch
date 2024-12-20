@@ -100,7 +100,7 @@ namespace Jelly
 	{
 		glUseProgram(mShaders);
 	}
-	void OpenGLShaders::SetIntUniform(const std::string& uniformName, const std::vector<int> values)
+	void OpenGLShaders::SetIntUniform(const std::string& uniformName, const std::vector<int>& values)
 	{
 		glUseProgram(mShaders);
 		int location{ glGetUniformLocation(mShaders, uniformName.c_str()) };

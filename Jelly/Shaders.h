@@ -14,7 +14,7 @@ namespace Jelly
 		void LoadShaders(const std::string& vertexSFile, const std::string& fragmentSFile);
 
 		void Bind();
-		void SetIntUniform(const std::string& uniformName, const std::vector<int> values);
+		void SetIntUniform(const std::string& uniformName, const std::vector<int>& values);
 		void SetIntUniform(const std::string& uniformName, int value);
 
 	private:

@@ -19,8 +19,6 @@ namespace Jelly
 		unsigned int mVAO{ 0 };
 		unsigned int mEBO{ 0 };
 
-		Shaders mDefaultShaders{ 
-			"../JellyAssets/Shaders/defaultVertexShader.glsl",
-			"../JellyAssets/Shaders/defaultFragmentShader.glsl" };
+		Shaders mDefaultShaders;
 	};
 }

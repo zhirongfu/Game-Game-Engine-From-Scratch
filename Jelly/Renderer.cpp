@@ -1,6 +1,7 @@
 #include "pch.h"
 
 #include "Renderer.h"
+#include "codeOpenGL/OpenGLRenderer.h"
 
 namespace Jelly
 {
@@ -16,14 +17,14 @@ namespace Jelly
 	{
 		if (mInstance == nullptr)
 		{
-			mInstance = std::unique_ptr<Renderer>(new Renderer);
+			mInstance = std::unique_ptr<Renderer>{ new Renderer };
 		}
 	}
 	void Renderer::Draw(Image& pic, int xCoord, int yCoord)
 	{
 		mInstance-> mImplementation->Draw(pic, xCoord, yCoord);
 	}
-	void Renderer::Draw(Image& pic, int xCoord, int yCoord, Shaders shaders)
+	void Renderer::Draw(Image& pic, int xCoord, int yCoord, Shaders& shaders)
 	{
 		mInstance->mImplementation->Draw(pic, xCoord, yCoord, shaders);
 	}

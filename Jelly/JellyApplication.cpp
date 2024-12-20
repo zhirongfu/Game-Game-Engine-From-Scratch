@@ -4,36 +4,51 @@
 #include "JellyWindow.h"
 #include "Image.h"
 #include "Shaders.h"
+#include "Renderer.h"	
 
 #define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
 #include "glad/glad.h"
 
 #include "stb_image.h"
+#include "filesystem"
 
 namespace Jelly
 {
 	void JellyApplication::Run()
 	{
-		Initialize();
+		Jelly::JellyWindow::Init();
+		Jelly::JellyWindow::GetWindow()->CreateWindow(800, 600, "test");
+
+		Renderer::Init();
+
+		//Initialize();
+
+				//		shaders		//
 
 		Jelly::Shaders shaders{
 			"../Jelly/JellyAssets/Shaders/defaultVertexShader.glsl",
-			"../Jelly/JellyAssets/Shaders/defaultfragmentShader.glsl" };
+			"../Jelly/JellyAssets/Shaders/defaultFragmentShader.glsl" };
 		shaders.SetIntUniform("ScreenDim", { 800, 600 });
 
-		//Jelly::Image pic{ "../Jelly/JellyAssets/Images/Jelly.jpg" };
+				//		Texture		//
+		Jelly::Image pic{ "../Jelly/JellyAssets/Images/Jelly.png" };
+		int x{ 100 };
 
-		while (ShouldContinue)
+		mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
+
+		while (mShouldContinue)
 		{
 			Update();
 
-			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
-			shaders.Bind();
+			Renderer::ClearScreen();
+			
+			Renderer::Draw(pic, x, 200);
+			x += 2;
 
+			std::this_thread::sleep_until(mNextFrameTime);
+			mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 
-			//pic.Bind();
 			Jelly::JellyWindow::GetWindow()->SwapBuffers();
 			Jelly::JellyWindow::GetWindow()->PollEvents();
 		}

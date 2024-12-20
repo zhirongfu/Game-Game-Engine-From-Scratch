@@ -29,7 +29,7 @@ namespace Jelly
 	{
 		implementation->Bind();
 	}
-	void Shaders::SetIntUniform(const std::string& uniformName, const std::vector<int> values)
+	void Shaders::SetIntUniform(const std::string& uniformName, const std::vector<int>& values)
 	{
 		implementation->SetIntUniform(uniformName, values);
 	}

@@ -14,7 +14,7 @@ namespace Jelly
 		static void Init();
 
 		static void Draw(Image& pic, int xCoord, int yCoord);
-		static void Draw(Image& pic, int xCoord, int yCoord, Shaders shaders);
+		static void Draw(Image& pic, int xCoord, int yCoord, Shaders& shaders);
 
 		static void ClearScreen();
 	private:
