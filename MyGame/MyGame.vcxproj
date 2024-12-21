@@ -136,7 +136,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Alien.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="MyGame.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Alien.h" />
+    <ClInclude Include="Bullet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

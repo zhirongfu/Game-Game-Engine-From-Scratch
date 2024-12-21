@@ -18,6 +18,7 @@ namespace Jelly
 	JellyApplication::JellyApplication()
 	{
 		Jelly::JellyWindow::Init();
+		
 		Jelly::JellyWindow::GetWindow()->CreateWindow(800, 600, "test");
 
 		Renderer::Init();
@@ -79,6 +80,7 @@ namespace Jelly
 
 	void JellyApplication::Shutdown()
 	{
+		//mShouldContinue = false;
 	}
 
 
