@@ -9,6 +9,7 @@ class MyGameApplication : public Jelly::JellyApplication
 		//Jelly::JellyWindow::Init();
 		//Jelly::JellyWindow::GetWindow() ->CreateWindow(800, 600, "test");
 		SetKeyEventHandler([this](const Jelly::KeyEvent& event) { MyKeysHandler(event); });
+		//Jelly::Renderer::Draw(background);
 		SpawnAliens();
 	}
 
@@ -34,7 +35,7 @@ class MyGameApplication : public Jelly::JellyApplication
 		//std::cout << "hello";
 		auto [clampedX, clampedY] = ClampPosition(player.GetXCoord(), player.GetYCoord(), 800 - player.GetWidth(), 600 - player.GetHeight());
 		player.SetCoords(clampedX,clampedY);
-
+		Jelly::Renderer::Draw(background);
 		for (auto& bullet : bullets)
 			bullet.UpdateYCoord(10);
 
@@ -78,6 +79,7 @@ class MyGameApplication : public Jelly::JellyApplication
 			SpawnAliens(); // Respawn new wave of aliens
 			speed += 1;// Add speed once you've cleared a wave
 		}
+		//Jelly::Renderer::Draw(background);
 
 		Jelly::Renderer::Draw(player);
 
@@ -85,7 +87,7 @@ class MyGameApplication : public Jelly::JellyApplication
 			Jelly::Renderer::Draw(alien);
 
 	}
-	std::pair<int, int> ClampPosition(int x, int y, int width, int height)
+	std::pair<int, int> ClampPosition(int x, int y, int width, int height)//configs player to within screen
 	{
 		if (x < 0) x = 0;
 		if (y < 0) y = 0;
@@ -95,6 +97,7 @@ class MyGameApplication : public Jelly::JellyApplication
 	}
 private:
 	Jelly::Unit player{ "../Jelly/JellyAssets/Images/Ship.png",365 , 25 };
+	Jelly::Unit background{ "../Jelly/JellyAssets/Images/Background.png",2,0 };
 	std::set<int> activeKeys;
 	std::vector<Jelly::Unit> bullets;
 	std::vector<Jelly::Unit> aliens;
