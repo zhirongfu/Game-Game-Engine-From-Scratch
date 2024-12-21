@@ -11,6 +11,8 @@ namespace Jelly
 	class JELLY_API JellyApplication
 	{
 	public:
+		JellyApplication();
+
 		void Run();
 		virtual void Initialize();
 		virtual void Update();

@@ -15,7 +15,7 @@
 
 namespace Jelly
 {
-	void JellyApplication::Run()
+	JellyApplication::JellyApplication()
 	{
 		Jelly::JellyWindow::Init();
 		Jelly::JellyWindow::GetWindow()->CreateWindow(800, 600, "test");
@@ -23,31 +23,38 @@ namespace Jelly
 		Renderer::Init();
 
 		SetWindowEventHandler(
-			[this](const WindowEvent& event){ DefaultWindowEventHandler(event); });
+			[this](const WindowEvent& event) { DefaultWindowEventHandler(event); });
 
-		//Initialize();
+	}
+	void JellyApplication::Run()
+	{
+
+		Initialize();
 
 				//		shaders		//
 
-		Jelly::Shaders shaders{
+		/*Jelly::Shaders shaders{
 			"../Jelly/JellyAssets/Shaders/defaultVertexShader.glsl",
 			"../Jelly/JellyAssets/Shaders/defaultFragmentShader.glsl" };
 		shaders.SetIntUniform("ScreenDim", { 800, 600 });
+		*/
 
 				//		Texture		//
-		Jelly::Image pic{ "../Jelly/JellyAssets/Images/Jelly.png" };
-		int x{ 100 };
+		//Jelly::Image pic{ "../Jelly/JellyAssets/Images/Jelly.png" };
+		//int x{ 100 };
+		SetWindowEventHandler(
+			[this](const WindowEvent& event) { DefaultWindowEventHandler(event); });
 
 		mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 
 		while (mShouldContinue)
 		{
+			Renderer::ClearScreen();
+
 			Update();
 
-			Renderer::ClearScreen();
-			
-			Renderer::Draw(pic, x, 200);
-			x += 2;
+			//Renderer::Draw(pic, x, 200);
+			//x += 2;
 
 			std::this_thread::sleep_until(mNextFrameTime);
 			mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
