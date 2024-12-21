@@ -19,7 +19,7 @@ namespace Jelly
 	{
 		Jelly::JellyWindow::Init();
 		
-		Jelly::JellyWindow::GetWindow()->CreateWindow(800, 600, "test");
+		Jelly::JellyWindow::GetWindow()->CreateWindow(800, 600, "Press Space To Shoot");
 
 		Renderer::Init();
 
